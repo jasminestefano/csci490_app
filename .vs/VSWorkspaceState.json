@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AppGui"
   ],
-  "SelectedNode": "\\D:\\CSCI490",
+  "SelectedNode": "\\AppGui\\AppGui.sln",
   "PreviewInSolutionExplorer": false
 }
