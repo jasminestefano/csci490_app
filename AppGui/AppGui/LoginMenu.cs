@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace AppGui
 {
-    public partial class Form1 : Form
+    public partial class LoginMenu : Form
     {
-        public Form1()
+        public LoginMenu()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

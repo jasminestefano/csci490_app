@@ -1,6 +1,6 @@
 ﻿namespace AppGui
 {
-    partial class Form1
+    partial class HomeMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -37,4 +37,3 @@
         #endregion
     }
 }
-
