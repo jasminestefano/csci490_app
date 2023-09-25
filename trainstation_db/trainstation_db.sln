@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "trainstation_db", "trainstation_db\trainstation_db.sqlproj", "{07C73C90-7AE1-40D6-8D19-A528AA918C80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C73C90-7AE1-40D6-8D19-A528AA918C80}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08120420-0F8D-49BE-ABB3-8E41E9C96F50}
+	EndGlobalSection
+EndGlobal
