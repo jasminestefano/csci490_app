@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Login = new System.Windows.Forms.Button();
-            this.accountCreate = new System.Windows.Forms.Button();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.createBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Login
+            // LoginBtn
             // 
-            this.Login.Location = new System.Drawing.Point(267, 220);
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(218, 54);
-            this.Login.TabIndex = 0;
-            this.Login.Text = "Login";
-            this.Login.UseVisualStyleBackColor = true;
-            this.Login.Click += new System.EventHandler(this.button1_Click);
+            this.LoginBtn.Location = new System.Drawing.Point(267, 220);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(218, 54);
+            this.LoginBtn.TabIndex = 0;
+            this.LoginBtn.Text = "Login";
+            this.LoginBtn.UseVisualStyleBackColor = true;
+            this.LoginBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // accountCreate
+            // createBtn
             // 
-            this.accountCreate.Location = new System.Drawing.Point(267, 312);
-            this.accountCreate.Name = "accountCreate";
-            this.accountCreate.Size = new System.Drawing.Size(218, 48);
-            this.accountCreate.TabIndex = 1;
-            this.accountCreate.Text = "Create Account";
-            this.accountCreate.UseVisualStyleBackColor = true;
+            this.createBtn.Location = new System.Drawing.Point(267, 312);
+            this.createBtn.Name = "createBtn";
+            this.createBtn.Size = new System.Drawing.Size(218, 48);
+            this.createBtn.TabIndex = 1;
+            this.createBtn.Text = "Create Account";
+            this.createBtn.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // LoginMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.accountCreate);
-            this.Controls.Add(this.Login);
-            this.Name = "Form1";
+            this.Controls.Add(this.createBtn);
+            this.Controls.Add(this.LoginBtn);
+            this.Name = "LoginMenu";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -66,8 +66,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Login;
-        private System.Windows.Forms.Button accountCreate;
+        private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Button createBtn;
     }
 }
 
