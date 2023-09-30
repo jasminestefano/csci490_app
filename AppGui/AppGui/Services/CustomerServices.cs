@@ -1,8 +1,23 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using AppGui.Models;
+using AppGui.Repository;
+using System.Linq;
+using System;
 
-public class Class1
+namespace AppGui.Services
 {
-	public Class1()
+	public class CustomerServices
 	{
-	}
+		CustomerRepository _repo;
+		public CustomerServices()
+		{
+			_repo = new CustomerRepository();
+		}
+        public bool validateLogin(string email, string password)
+		{
+			bool infoLogin = _repo.validateLogin(email, password);
+			return infoLogin;
+		}
+
+    }
 }

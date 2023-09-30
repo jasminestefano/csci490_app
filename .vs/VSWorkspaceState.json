@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\AppGui",
-    "\\trainstation_db"
+    "\\AppGui\\AppGui"
   ],
-  "SelectedNode": "\\trainstation_db\\trainstation_db.sln",
+  "SelectedNode": "\\AppGui\\AppGui.sln",
   "PreviewInSolutionExplorer": false
 }
