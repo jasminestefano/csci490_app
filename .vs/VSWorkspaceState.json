@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\AppGui",
-    "\\AppGui\\AppGui"
+    "\\AppGui\\AppGui",
+    "\\AppGui\\AppGui\\Repository"
   ],
-  "SelectedNode": "\\AppGui\\AppGui.sln",
+  "SelectedNode": "\\AppGui\\AppGui\\Repository\\CustomerRepository.cs",
   "PreviewInSolutionExplorer": false
 }
