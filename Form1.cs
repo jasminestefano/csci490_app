@@ -21,23 +21,42 @@ namespace MainProj
         private void Form1_Load(object sender, EventArgs e)
         {
             string connectionString = "Server=localhost;Database=train_station;User=root;Password=12345;";
-            string query = "SELECT * FROM TrainSchedules;";
+            string schedule_query = "SELECT * FROM TrainSchedules;";
+            string train_query = "SELECT * FROM Trains;";
+            string station_query = "SELECT * FROM Stations";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand schedule_command = new MySqlCommand(schedule_query, connection);
+            MySqlCommand train_command = new MySqlCommand(train_query, connection);
+            MySqlCommand station_command = new MySqlCommand(station_query, connection);
 
             // try to fill grid
             try
             {
                 connection.Open();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                System.Data.DataTable dataTable = new System.Data.DataTable();
-                adapter.Fill(dataTable);
 
-                dataGridView1.DataSource = dataTable;
+                // fill grid with schedule info
+                MySqlDataAdapter schedule_adapter = new MySqlDataAdapter(schedule_command);
+                DataTable dataTable_schedule = new DataTable();
+                schedule_adapter.Fill(dataTable_schedule);
 
-                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                dataGridView1.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
+                dataGridView1.DataSource = dataTable_schedule;
+
+
+                // fill grid with train info
+                MySqlDataAdapter train_adapter = new MySqlDataAdapter(train_command);
+                DataTable dataTable_trains = new DataTable();
+                train_adapter.Fill(dataTable_trains);
+
+                dataGridView2.DataSource = dataTable_trains;
+
+                // fill grid with station info
+                MySqlDataAdapter station_adapter = new MySqlDataAdapter(station_command);
+                DataTable dataTable_station = new DataTable();
+                station_adapter.Fill(dataTable_station);
+
+                dataGridView3.DataSource = dataTable_station;
+
 
 
 
@@ -49,5 +68,11 @@ namespace MainProj
             }
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            return;
+        }
+
     }
 }
