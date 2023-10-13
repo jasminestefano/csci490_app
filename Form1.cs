@@ -23,7 +23,7 @@ namespace MainProj
             string connectionString = "Server=localhost;Database=train_station;User=root;Password=12345;";
             string schedule_query = "SELECT * FROM TrainSchedules;";
             string train_query = "SELECT * FROM Trains;";
-            string station_query = "SELECT * FROM Stations";
+            string station_query = "SELECT * FROM Stations;";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand schedule_command = new MySqlCommand(schedule_query, connection);
