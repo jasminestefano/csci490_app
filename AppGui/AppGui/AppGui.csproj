@@ -121,6 +121,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Services\CustomerServices.cs" />
+    <EmbeddedResource Include="CreateMenu.resx">
+      <DependentUpon>CreateMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeMenu.resx">
       <DependentUpon>HomeMenu.cs</DependentUpon>
     </EmbeddedResource>
