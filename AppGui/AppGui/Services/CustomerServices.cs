@@ -23,16 +23,7 @@ namespace AppGui.Services
             bool infoEmail = _repo.validateEmail(email);
             return infoEmail;
         }
-        public bool validateFirstName(string firstName)
-        {
-            bool infoUserName = _repo.validateFirstName(firstName);
-            return infoUserName;
-        }
-        public bool validateLastName(string lastName)
-        {
-            bool infoUserName = _repo.validateLastName(lastName);
-            return infoUserName;
-        }
+
         public bool validatePassword(string password)
         {
             bool infoPassword = _repo.validatePassword(password);

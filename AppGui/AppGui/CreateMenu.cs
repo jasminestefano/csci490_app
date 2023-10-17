@@ -40,11 +40,10 @@ namespace AppGui
             lastName= EnterLastName.Text;
             email= EnterEmail.Text;
             password= EnterPassword.Text;
-            bool validateFirstName = customerServices.validateFirstName(firstName);
-            bool validateLastName = customerServices.validateLastName(lastName);
+
             bool validateEmail = customerServices.validateEmail(email);
             bool validatePassword = customerServices.validatePassword(password);
-            if(validateFirstName && validateLastName && validateEmail && validatePassword) {
+            if(validateEmail && validatePassword) {
                 customerServices.registerAccount(firstName, lastName,email,password);
                 this.Hide();
                 Login l = new Login();
