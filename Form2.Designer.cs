@@ -31,19 +31,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.createTrain_TrainIDtb = new System.Windows.Forms.TextBox();
+            this.createTrain_TrainNotb = new System.Windows.Forms.TextBox();
+            this.createTrain_DeptTimetb = new System.Windows.Forms.TextBox();
+            this.createTrain_ArrTimetb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.selectDepartureStationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.createTrain_DeptStaIDtb = new System.Windows.Forms.TextBox();
+            this.createTrain_ArrStaIDtb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -54,6 +53,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Create New Train";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -73,33 +73,37 @@
             this.button3.Text = "Create New Schedule";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // createTrain_TrainIDtb
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 3;
+            this.createTrain_TrainIDtb.Location = new System.Drawing.Point(171, 111);
+            this.createTrain_TrainIDtb.Name = "createTrain_TrainIDtb";
+            this.createTrain_TrainIDtb.Size = new System.Drawing.Size(100, 26);
+            this.createTrain_TrainIDtb.TabIndex = 3;
+            this.createTrain_TrainIDtb.TextChanged += new System.EventHandler(this.createTrain_TrainIDtb_TextChanged);
             // 
-            // textBox2
+            // createTrain_TrainNotb
             // 
-            this.textBox2.Location = new System.Drawing.Point(299, 111);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 4;
+            this.createTrain_TrainNotb.Location = new System.Drawing.Point(299, 111);
+            this.createTrain_TrainNotb.Name = "createTrain_TrainNotb";
+            this.createTrain_TrainNotb.Size = new System.Drawing.Size(100, 26);
+            this.createTrain_TrainNotb.TabIndex = 4;
+            this.createTrain_TrainNotb.TextChanged += new System.EventHandler(this.createTrain_TrainNotb_TextChanged);
             // 
-            // textBox5
+            // createTrain_DeptTimetb
             // 
-            this.textBox5.Location = new System.Drawing.Point(696, 111);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
-            this.textBox5.TabIndex = 7;
+            this.createTrain_DeptTimetb.Location = new System.Drawing.Point(813, 111);
+            this.createTrain_DeptTimetb.Name = "createTrain_DeptTimetb";
+            this.createTrain_DeptTimetb.Size = new System.Drawing.Size(100, 26);
+            this.createTrain_DeptTimetb.TabIndex = 7;
+            this.createTrain_DeptTimetb.TextChanged += new System.EventHandler(this.createTrain_DeptTimetb_TextChanged);
             // 
-            // textBox6
+            // createTrain_ArrTimetb
             // 
-            this.textBox6.Location = new System.Drawing.Point(847, 111);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 26);
-            this.textBox6.TabIndex = 8;
+            this.createTrain_ArrTimetb.Location = new System.Drawing.Point(968, 111);
+            this.createTrain_ArrTimetb.Name = "createTrain_ArrTimetb";
+            this.createTrain_ArrTimetb.Size = new System.Drawing.Size(100, 26);
+            this.createTrain_ArrTimetb.TabIndex = 8;
+            this.createTrain_ArrTimetb.TextChanged += new System.EventHandler(this.createTrain_ArrTimetb_TextChanged);
             // 
             // label1
             // 
@@ -122,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 144);
+            this.label3.Location = new System.Drawing.Point(445, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 20);
             this.label3.TabIndex = 11;
@@ -131,7 +135,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(561, 144);
+            this.label4.Location = new System.Drawing.Point(641, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
             this.label4.TabIndex = 12;
@@ -140,7 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(692, 144);
+            this.label5.Location = new System.Drawing.Point(809, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 13;
@@ -149,57 +153,51 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(820, 144);
+            this.label6.Location = new System.Drawing.Point(964, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "ArrivalTime";
             // 
-            // menuStrip1
+            // createTrain_DeptStaIDtb
             // 
-            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectDepartureStationToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(437, 111);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(226, 33);
-            this.menuStrip1.TabIndex = 15;
-            this.menuStrip1.Text = "menuStrip1";
+            this.createTrain_DeptStaIDtb.Location = new System.Drawing.Point(449, 111);
+            this.createTrain_DeptStaIDtb.Name = "createTrain_DeptStaIDtb";
+            this.createTrain_DeptStaIDtb.Size = new System.Drawing.Size(145, 26);
+            this.createTrain_DeptStaIDtb.TabIndex = 15;
+            this.createTrain_DeptStaIDtb.TextChanged += new System.EventHandler(this.createTrain_DeptStaIDtb_TextChanged);
             // 
-            // selectDepartureStationToolStripMenuItem
+            // createTrain_ArrStaIDtb
             // 
-            this.selectDepartureStationToolStripMenuItem.Name = "selectDepartureStationToolStripMenuItem";
-            this.selectDepartureStationToolStripMenuItem.Size = new System.Drawing.Size(218, 29);
-            this.selectDepartureStationToolStripMenuItem.Text = "Select Departure Station";
+            this.createTrain_ArrStaIDtb.Location = new System.Drawing.Point(645, 111);
+            this.createTrain_ArrStaIDtb.Name = "createTrain_ArrStaIDtb";
+            this.createTrain_ArrStaIDtb.Size = new System.Drawing.Size(116, 26);
+            this.createTrain_ArrStaIDtb.TabIndex = 16;
+            this.createTrain_ArrStaIDtb.TextChanged += new System.EventHandler(this.createTrain_ArrStaIDtb_TextChanged);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 450);
+            this.ClientSize = new System.Drawing.Size(1099, 450);
+            this.Controls.Add(this.createTrain_ArrStaIDtb);
+            this.Controls.Add(this.createTrain_DeptStaIDtb);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.createTrain_ArrTimetb);
+            this.Controls.Add(this.createTrain_DeptTimetb);
+            this.Controls.Add(this.createTrain_TrainNotb);
+            this.Controls.Add(this.createTrain_TrainIDtb);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,17 +208,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox createTrain_TrainIDtb;
+        private System.Windows.Forms.TextBox createTrain_TrainNotb;
+        private System.Windows.Forms.TextBox createTrain_DeptTimetb;
+        private System.Windows.Forms.TextBox createTrain_ArrTimetb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem selectDepartureStationToolStripMenuItem;
+        private System.Windows.Forms.TextBox createTrain_DeptStaIDtb;
+        private System.Windows.Forms.TextBox createTrain_ArrStaIDtb;
     }
 }

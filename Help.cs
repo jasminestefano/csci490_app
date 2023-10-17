@@ -5,24 +5,25 @@ using MySql.Data.MySqlClient;
 
 namespace MainProj
 {
+
     public class Train {
 
-        private int TrainId { get; set; }
-        private string TrainNumber { get; set; }
-        private int DepartureStationID { get; set; }
-        private int ArrivalStationID { get; set; }
-        private int DepartureTime { get; set; }
-        private int ArrivalTime { get; set; }
+        public int TrainId { get; set; }
+        public string TrainNumber { get; set; }
+        public int DepartureStationID { get; set; }
+        public int ArrivalStationID { get; set; }
+        public int DepartureTime { get; set; }
+        public int ArrivalTime { get; set; }
 
-        bool add_Train(SqlCommand cmd)
+        public bool add_Train(MySqlCommand cmd)
         {
 
-            cmd.Parameters.Add("@TrainId", SqlDbType.Int).Value = this.TrainId;
-            cmd.Parameters.Add("@TrainNumber", SqlDbType.NVarChar).Value = this.TrainNumber;
-            cmd.Parameters.Add("@DepartureStationID", SqlDbType.Int).Value = this.DepartureStationID;
-            cmd.Parameters.Add("@ArrivalStationID", SqlDbType.Int).Value = this.ArrivalStationID;
-            cmd.Parameters.Add("@DepartureTime", SqlDbType.Int).Value = this.DepartureTime;
-            cmd.Parameters.Add("@ArrivalTime", SqlDbType.Int).Value = this.ArrivalTime;
+            cmd.Parameters.Add("@TrainId", MySqlDbType.Int32).Value = this.TrainId;
+            cmd.Parameters.Add("@TrainNumber", MySqlDbType.VarChar).Value = this.TrainNumber;
+            cmd.Parameters.Add("@DepartureStationID", MySqlDbType.Int32).Value = this.DepartureStationID;
+            cmd.Parameters.Add("@ArrivalStationID", MySqlDbType.Int32).Value = this.ArrivalStationID;
+            cmd.Parameters.Add("@DepartureTime", MySqlDbType.Int32).Value = this.DepartureTime;
+            cmd.Parameters.Add("@ArrivalTime", MySqlDbType.Int32).Value = this.ArrivalTime;
 
             int affectedRows = cmd.ExecuteNonQuery();
 
@@ -77,7 +78,7 @@ namespace MainProj
         private string JobTitle { get; set; }
         private int StationID { get; set; }
         private string EmpPassword { get; set; }
-
+        /*
         bool public add_EmployeeDB(SqlCommand cmd)
         {
             cmd.Parameters.Add("@EmployeeID", SqlDbType.NVarChar).Value = this.EmployeeID;
@@ -92,7 +93,7 @@ namespace MainProj
 
             return affectedRows > 0;
 
-        }
+        } */
 
 
     }
