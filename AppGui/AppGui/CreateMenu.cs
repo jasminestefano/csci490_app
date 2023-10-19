@@ -48,6 +48,7 @@ namespace AppGui
                 this.Hide();
                 Login l = new Login();
                 l.Show();
+                //testing
             }
         }
     }
