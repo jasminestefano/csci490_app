@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjFinal
 {
@@ -95,6 +98,34 @@ namespace ProjFinal
             return affectedRows > 0;
         }
 
+        public bool delete_Train(int id)
+        {
+            int rowsAffected = 0;
+            string query = "DELETE FROM trains WHERE TrainId = @TrainId";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    // Assuming your column value is a string
+                    cmd.Parameters.AddWithValue("@TrainId", id);
+
+                    try
+                    {
+                        rowsAffected = cmd.ExecuteNonQuery();
+                        
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
         public void set_Table(DataGridView dataGridView)
         {
             string train_query = "SELECT * FROM Trains;";
@@ -122,7 +153,105 @@ namespace ProjFinal
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+        public bool updateTrain(int trainid, string trainno, int dept, int arr, DateTime depttime, DateTime arrtime)
+        {
+            int rowsAffected = 0;
+            string query = "UPDATE Trains " +
+                "SET TrainNumber = @trainno, " +
+                "DepartureStationID = @dept, " +
+                "ArrivalStationID = @arr," +
+                "DepartureTime = @depttime, " +
+                "ArrivalTime = @arrtime " +
+                "WHERE TrainID = @trainID";
 
+            GetTrainById(trainid);
+            set_Attr(trainno, dept, arr, depttime, arrtime);
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@trainID", this.trainID);
+                    cmd.Parameters.AddWithValue("@trainno", this.trainNo);
+                    cmd.Parameters.AddWithValue("@dept", this.deptStaID);
+                    cmd.Parameters.AddWithValue("@arr", this.arrStaID);
+                    cmd.Parameters.AddWithValue("@depttime", this.deptTime);
+                    cmd.Parameters.AddWithValue("@arrtime", this.arrTime);
+
+                    try
+                    {
+                        rowsAffected = cmd.ExecuteNonQuery();
+
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+        public void GetTrainById(int id)
+        {
+            string query = "SELECT * FROM trains WHERE TrainId = @id";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            this.trainID = reader.GetInt32("TrainId");
+                            this.trainNo = reader.GetString("TrainNumber");
+                            this.deptStaID = reader.GetInt32("DepartureStationID");
+                            this.arrStaID = reader.GetInt32("ArrivalStationID");
+                            this.deptTime = reader.GetDateTime("DepartureTime");
+                            this.arrTime = reader.GetDateTime("ArrivalTime");
+                        }
+                    }
+                }
+            }
+        }
+
+        public void set_Attr(string trainno, int dept, int arr, DateTime depttime, DateTime arrtime)
+        {
+            if (!string.IsNullOrEmpty(trainno) && !trainno.Equals(this.trainNo, StringComparison.Ordinal))
+            {
+                this.trainNo = trainno;
+                Console.WriteLine("number diff");
+            }
+
+            if (dept != 0 && dept != this.deptStaID) // Assuming dept is non-negative. Adjust condition as necessary.
+            {
+                this.deptStaID = dept;
+                Console.WriteLine("dept diff");
+            }
+
+            if (arr != 0 && arr != this.arrStaID) // Assuming arr is non-negative. Adjust condition as necessary.
+            {
+                this.arrStaID = arr;
+                Console.WriteLine("arr diff");
+            }
+
+            if (depttime != this.deptTime && depttime != DateTime.MinValue)
+            {
+                this.deptTime = depttime;
+                Console.WriteLine("time diff");
+            }
+
+            if (arrtime != this.arrTime && arrtime != DateTime.MinValue)
+            {
+                this.arrTime = arrtime;
+                Console.WriteLine("time diff");
+            }
+        }
 
     }
+            
 }

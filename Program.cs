@@ -16,7 +16,7 @@ namespace ProjFinal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Schedule());
+            Application.Run(new Train());
         }
     }
 }

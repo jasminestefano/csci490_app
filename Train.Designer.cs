@@ -41,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.arrTimeTB = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.deptTimeTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.arriStatIDTB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.trainIDTB = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.deptTimeTB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +66,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -75,6 +76,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addButton
             // 
@@ -177,14 +179,6 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "ArrivalTime";
             // 
-            // deptTimeTB
-            // 
-            this.deptTimeTB.Location = new System.Drawing.Point(20, 433);
-            this.deptTimeTB.Name = "deptTimeTB";
-            this.deptTimeTB.Size = new System.Drawing.Size(274, 26);
-            this.deptTimeTB.TabIndex = 25;
-            this.deptTimeTB.Leave += new System.EventHandler(this.deptTimeTB_TextChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -268,14 +262,26 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.dataGridView1.Location = new System.Drawing.Point(502, 63);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(495, 650);
             this.dataGridView1.TabIndex = 34;
+            // 
+            // deptTimeTB
+            // 
+            this.deptTimeTB.Location = new System.Drawing.Point(20, 433);
+            this.deptTimeTB.Name = "deptTimeTB";
+            this.deptTimeTB.Size = new System.Drawing.Size(274, 26);
+            this.deptTimeTB.TabIndex = 25;
+            this.deptTimeTB.Leave += new System.EventHandler(this.deptTimeTB_TextChanged);
             // 
             // Train
             // 
@@ -333,7 +339,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox arrTimeTB;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox deptTimeTB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox arriStatIDTB;
         private System.Windows.Forms.Label label8;
@@ -344,5 +349,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox trainIDTB;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox deptTimeTB;
     }
 }
