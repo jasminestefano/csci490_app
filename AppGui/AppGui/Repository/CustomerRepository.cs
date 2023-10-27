@@ -14,13 +14,14 @@ namespace AppGui.Repository
 	public class CustomerRepository
 	{
 		public List<CustomerModel> CustomerModel { get; set; }
-		private MySqlConnection _connection;
+		public MySqlConnection _connection;
 		public CustomerRepository()
 		{
 			string connectionString = "server=sql9.freesqldatabase.com;userid=sql9649325;password=N98B1iW8Gi;database=sql9649325";
             _connection = new MySqlConnection(connectionString);
             _connection.Open();
         }
+
         ~CustomerRepository()
         {
             _connection.Close();
@@ -60,6 +61,7 @@ namespace AppGui.Repository
                 return false;
             }
         }
+        
         public void registerAccount(string f, string l, string e, string p)
         {
             var statement = "INSERT INTO Passengers(FirstName, LastName, Email, Password) VALUES(@newFirst, @newLast, @newEmail, @newPassword)";

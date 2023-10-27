@@ -42,3 +42,4 @@ D:\CSCI490\AppGui\AppGui\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.csproj.CopyComplete
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.HomeMenu.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.CreateMenu.resources
+D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.Booking.resources
