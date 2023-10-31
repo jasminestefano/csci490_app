@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.locTB = new System.Windows.Forms.Label();
+            this.statNameTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.statIDTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,32 +54,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // deleteButton
             // 
-            this.button3.Location = new System.Drawing.Point(260, 346);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 61);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(260, 346);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 61);
+            this.deleteButton.TabIndex = 21;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // updateButton
             // 
-            this.button2.Location = new System.Drawing.Point(179, 346);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 61);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.updateButton.Location = new System.Drawing.Point(179, 346);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 61);
+            this.updateButton.TabIndex = 20;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(98, 346);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 61);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addButton.Location = new System.Drawing.Point(98, 346);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 61);
+            this.addButton.TabIndex = 11;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // textBox3
             // 
@@ -87,47 +88,50 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(278, 26);
             this.textBox3.TabIndex = 19;
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // label5
+            // locTB
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 238);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 20);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "label5";
+            this.locTB.AutoSize = true;
+            this.locTB.Location = new System.Drawing.Point(24, 238);
+            this.locTB.Name = "locTB";
+            this.locTB.Size = new System.Drawing.Size(70, 20);
+            this.locTB.TabIndex = 18;
+            this.locTB.Text = "Location";
             // 
-            // textBox2
+            // statNameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(28, 197);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 26);
-            this.textBox2.TabIndex = 17;
+            this.statNameTB.Location = new System.Drawing.Point(28, 197);
+            this.statNameTB.Name = "statNameTB";
+            this.statNameTB.Size = new System.Drawing.Size(278, 26);
+            this.statNameTB.TabIndex = 17;
+            this.statNameTB.Leave += new System.EventHandler(this.statNameTB_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.Size = new System.Drawing.Size(102, 20);
             this.label4.TabIndex = 16;
-            this.label4.Text = "label4";
+            this.label4.Text = "StationName";
             // 
-            // textBox1
+            // statIDTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 132);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 26);
-            this.textBox1.TabIndex = 15;
+            this.statIDTB.Location = new System.Drawing.Point(28, 132);
+            this.statIDTB.Name = "statIDTB";
+            this.statIDTB.Size = new System.Drawing.Size(278, 26);
+            this.statIDTB.TabIndex = 15;
+            this.statIDTB.Leave += new System.EventHandler(this.statIDTB_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
+            this.label3.Text = "StationID";
             // 
             // label2
             // 
@@ -237,14 +241,14 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.updateButton);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.locTB);
+            this.Controls.Add(this.statNameTB);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.statIDTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -263,14 +267,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label locTB;
+        private System.Windows.Forms.TextBox statNameTB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox statIDTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;

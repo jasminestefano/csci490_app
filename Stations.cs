@@ -13,6 +13,10 @@ namespace ProjFinal
 {
     public partial class Stations : Form
     {
+        int statID = 0;
+        string stationName = null;
+        string location = null;
+
         public Stations()
         {
             InitializeComponent();
@@ -61,6 +65,59 @@ namespace ProjFinal
         {
             Train train = new Train();
             train.Show();
+        }
+
+        private void statIDTB_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                statID = int.Parse(statIDTB.Text);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("The string is not a valid integer.");
+            }
+        }
+
+        private void statNameTB_TextChanged(object sender, EventArgs e)
+        {
+            stationName = statNameTB.Text;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            location = textBox3.Text;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            bool filled_out = false;
+            bool succ = false;
+            StationHandler handler = new StationHandler();
+            filled_out = handler.setStation(statID, stationName, location);
+
+            if (filled_out)
+            {
+                Console.WriteLine("its filled out");
+                succ = handler.add_Station();
+                if (succ)
+                {
+                    Console.WriteLine("add success");
+                    handler.set_Table(dataGridView1);
+                }
+                else
+                {
+                    Console.WriteLine("add fail");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("not filled out");
+            }
+
+
+
         }
     }
 }
