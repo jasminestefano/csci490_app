@@ -63,12 +63,14 @@ namespace ProjFinal
         {
             Train train = new Train();
             train.Show();
+            this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Stations stations = new Stations();
             stations.Show();
+            this.Close();
         }
 
         //

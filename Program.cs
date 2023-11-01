@@ -6,17 +6,24 @@ using System.Windows.Forms;
 
 namespace ProjFinal
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Train());
+            Schedule scheduleForm = new Schedule();
+            scheduleForm.FormClosed += new FormClosedEventHandler(OnFormClosed);
+            scheduleForm.Show();
+            Application.Run();
+        }
+
+        static void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((Form)sender).FormClosed -= OnFormClosed;
+            if (Application.OpenForms.Count == 0) Application.ExitThread();
+            else Application.OpenForms[0].FormClosed += OnFormClosed;
         }
     }
 }

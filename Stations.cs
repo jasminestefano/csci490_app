@@ -59,12 +59,14 @@ namespace ProjFinal
         {
             Schedule schedule = new Schedule();
             schedule.Show();
+            this.Close();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Train train = new Train();
             train.Show();
+            this.Close();
         }
 
         private void statIDTB_TextChanged(object sender, EventArgs e)

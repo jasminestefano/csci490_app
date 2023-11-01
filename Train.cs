@@ -1,12 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ProjFinal
@@ -34,16 +26,18 @@ namespace ProjFinal
         {
             Schedule schedule = new Schedule();
             schedule.Show();
+            this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Stations stations = new Stations();
             stations.Show();
+            this.Close();
         }
 
         private void trainIDTB_TextChanged(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 trainID = int.Parse(trainIDTB.Text);
@@ -104,10 +98,11 @@ namespace ProjFinal
             TrainHandler trainHandler = new TrainHandler();
             filled_out = trainHandler.setTrain(trainID, trainNo, deptStaID, arrStaID, deptTime, arrTime);
 
-            if(filled_out)
+            if (filled_out)
             {
                 succ = trainHandler.add_Train();
-                if (!succ) {
+                if (!succ)
+                {
                     Console.WriteLine("add didnt work!!");
                 }
                 else
@@ -126,10 +121,12 @@ namespace ProjFinal
             TrainHandler trainHandler = new TrainHandler();
 
             succ = trainHandler.delete_Train(trainID);
-            if (succ) {
+            if (succ)
+            {
                 Console.WriteLine("delete success");
                 trainHandler.set_Table(dataGridView1);
-            } else
+            }
+            else
             {
                 Console.WriteLine("delete not success");
             }
@@ -144,7 +141,7 @@ namespace ProjFinal
             {
                 Console.WriteLine("update success");
                 trainHandler.set_Table(dataGridView1);
-        
+
             }
             else
             {

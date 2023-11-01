@@ -287,7 +287,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "Schedule";
-            this.Text = "Form1";
+            this.Text = "Schedule";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Schedule_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
