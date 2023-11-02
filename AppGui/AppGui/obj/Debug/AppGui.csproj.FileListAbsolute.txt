@@ -43,3 +43,4 @@ D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.csproj.CopyComplete
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.HomeMenu.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.CreateMenu.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.Booking.resources
+D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.SettingMenu.resources

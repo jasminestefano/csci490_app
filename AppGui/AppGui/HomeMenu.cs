@@ -29,7 +29,7 @@ namespace AppGui
         public void loadData()
         {
                 var customerRepository = new CustomerRepository();
-                string query = "SELECT * from Passengers";
+                string query = "SELECT * from Trains";
                 MySqlCommand mySqlCommand = new MySqlCommand(query);
                 mySqlCommand.Connection = customerRepository._connection;
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -46,6 +46,34 @@ namespace AppGui
         private void infoList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bookTicketBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Booking booking = new Booking();
+            booking.Show();
+        }
+
+        private void viewScheduleBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeMenu homeMenu = new HomeMenu();
+            homeMenu.Show();
+        }
+
+        private void settingBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SettingMenu settingMenu = new SettingMenu();
+            settingMenu.Show();
+        }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
         }
     }
 }

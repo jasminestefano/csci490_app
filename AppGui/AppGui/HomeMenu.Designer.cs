@@ -28,50 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.logOutBtn = new System.Windows.Forms.Button();
+            this.settingBtn = new System.Windows.Forms.Button();
+            this.bookTicketBtn = new System.Windows.Forms.Button();
+            this.viewScheduleBtn = new System.Windows.Forms.Button();
             this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.infoList = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.infoList)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // logOutBtn
             // 
-            this.button1.Location = new System.Drawing.Point(0, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 109);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Logout";
-            this.button1.UseVisualStyleBackColor = true;
+            this.logOutBtn.Location = new System.Drawing.Point(0, 338);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(116, 109);
+            this.logOutBtn.TabIndex = 0;
+            this.logOutBtn.Text = "Logout";
+            this.logOutBtn.UseVisualStyleBackColor = true;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
-            // button2
+            // settingBtn
             // 
-            this.button2.Location = new System.Drawing.Point(0, 226);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 106);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Settings";
-            this.button2.UseVisualStyleBackColor = true;
+            this.settingBtn.Location = new System.Drawing.Point(0, 226);
+            this.settingBtn.Name = "settingBtn";
+            this.settingBtn.Size = new System.Drawing.Size(116, 106);
+            this.settingBtn.TabIndex = 1;
+            this.settingBtn.Text = "Settings";
+            this.settingBtn.UseVisualStyleBackColor = true;
+            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
             // 
-            // button3
+            // bookTicketBtn
             // 
-            this.button3.Location = new System.Drawing.Point(0, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 99);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Book Tickets";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bookTicketBtn.Location = new System.Drawing.Point(0, 5);
+            this.bookTicketBtn.Name = "bookTicketBtn";
+            this.bookTicketBtn.Size = new System.Drawing.Size(116, 99);
+            this.bookTicketBtn.TabIndex = 2;
+            this.bookTicketBtn.Text = "Book Tickets";
+            this.bookTicketBtn.UseVisualStyleBackColor = true;
+            this.bookTicketBtn.Click += new System.EventHandler(this.bookTicketBtn_Click);
             // 
-            // button4
+            // viewScheduleBtn
             // 
-            this.button4.Location = new System.Drawing.Point(0, 110);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 110);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "View Schedule";
-            this.button4.UseVisualStyleBackColor = true;
+            this.viewScheduleBtn.Location = new System.Drawing.Point(0, 110);
+            this.viewScheduleBtn.Name = "viewScheduleBtn";
+            this.viewScheduleBtn.Size = new System.Drawing.Size(116, 110);
+            this.viewScheduleBtn.TabIndex = 3;
+            this.viewScheduleBtn.Text = "View Schedule";
+            this.viewScheduleBtn.UseVisualStyleBackColor = true;
+            this.viewScheduleBtn.Click += new System.EventHandler(this.viewScheduleBtn_Click);
             // 
             // mySqlDataAdapter1
             // 
@@ -82,10 +86,11 @@
             // 
             // infoList
             // 
+            this.infoList.AllowUserToOrderColumns = true;
             this.infoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.infoList.Location = new System.Drawing.Point(169, 44);
+            this.infoList.Location = new System.Drawing.Point(122, 12);
             this.infoList.Name = "infoList";
-            this.infoList.Size = new System.Drawing.Size(538, 344);
+            this.infoList.Size = new System.Drawing.Size(666, 426);
             this.infoList.TabIndex = 4;
             this.infoList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.infoList_CellContentClick);
             // 
@@ -95,10 +100,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.infoList);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.viewScheduleBtn);
+            this.Controls.Add(this.bookTicketBtn);
+            this.Controls.Add(this.settingBtn);
+            this.Controls.Add(this.logOutBtn);
             this.Name = "HomeMenu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.HomeMenu_Load);
@@ -109,10 +114,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button logOutBtn;
+        private System.Windows.Forms.Button settingBtn;
+        private System.Windows.Forms.Button bookTicketBtn;
+        private System.Windows.Forms.Button viewScheduleBtn;
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.DataGridView infoList;
     }

@@ -42,7 +42,7 @@ namespace AppGui
             passTextBox.ForeColor = System.Drawing.Color.Gray;
             //passTextBox.GotFocus += txtPassword_GotFocus;
             //passTextBox.LostFocus += txtPassword_LostFocus;
-            displayIncorrect.Text = "Testing";
+           
         }
 
        
@@ -82,6 +82,11 @@ namespace AppGui
                 emailTextbox.Text = "";
                 passTextBox.Text = "";
             }
+
+        }
+
+        private void displayIncorrect_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
