@@ -67,6 +67,7 @@
             this.displayIncorrect.Name = "displayIncorrect";
             this.displayIncorrect.Size = new System.Drawing.Size(100, 20);
             this.displayIncorrect.TabIndex = 4;
+            this.displayIncorrect.TextChanged += new System.EventHandler(this.displayIncorrect_TextChanged);
             // 
             // loginBtn
             // 
