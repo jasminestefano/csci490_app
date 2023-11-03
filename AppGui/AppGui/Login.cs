@@ -34,18 +34,24 @@ namespace AppGui
             InitializeComponent();
             emailTextbox.Text = defaultEmailBox;
             emailTextbox.ForeColor = System.Drawing.Color.Gray;
-            //emailTextbox.GotFocus += emailTextBox_GotFocus;
-            //emailTextbox.LostFocus += emailTextBox_LostFocus;
+            emailTextbox.GotFocus += txtEmail_GotFocus;
+            emailTextbox.LostFocus += txtEmail_LostFocus;
 
 
             passTextBox.Text = defaultPassBox;
             passTextBox.ForeColor = System.Drawing.Color.Gray;
-            //passTextBox.GotFocus += txtPassword_GotFocus;
-            //passTextBox.LostFocus += txtPassword_LostFocus;
-           
+            passTextBox.GotFocus += txtPassword_GotFocus;
+            passTextBox.LostFocus += txtPassword_LostFocus;
+            /*
+            exitBtn.BackColor = Color.Transparent;
+            exitBtn.MouseEnter += button1_MouseEnter;
+            exitBtn.MouseLeave += button1_MouseLeave;
+
+            exitBtn.FlatAppearance.BorderSize = 0;
+            */
+
         }
 
-       
         public static bool validateLogin(string email, string password)
         {
             CustomerRepository customerRepo = new CustomerRepository();
@@ -71,7 +77,7 @@ namespace AppGui
             bool validate = validateLogin(email, password);
             if (validate)
             {
-                displayIncorrect.Text = "Correct Login";
+               
                 this.Hide();
                 HomeMenu h = new HomeMenu();
                 h.Show();
@@ -84,8 +90,47 @@ namespace AppGui
             }
 
         }
+        private void txtPassword_GotFocus(object sender, EventArgs e)
+        {
+            if (passTextBox.Text == defaultPassBox)
+            {
+                passTextBox.Text = "";
+                passTextBox.PasswordChar = '*';
+                passTextBox.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+        private void txtPassword_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(passTextBox.Text))
+            {
+                passTextBox.Text = defaultPassBox;
+                passTextBox.PasswordChar = '\u0000';
+                passTextBox.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+        private void txtEmail_GotFocus(object sender, EventArgs e)
+        {
+            if (emailTextbox.Text == defaultEmailBox)
+            {
+                emailTextbox.Text = "";
+                emailTextbox.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+        private void txtEmail_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(emailTextbox.Text))
+            {
+                emailTextbox.Text = defaultEmailBox;
+                emailTextbox.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
 
         private void displayIncorrect_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailTextbox_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -69,7 +69,7 @@ namespace AppGui
             string email = EmailChange.Text;
             string target = Login.email;
             CustomerServices customerServices = new CustomerServices();
-            customerServices.updateInformation(firstname,lastname,password,email,target);
+            customerServices.updateInformation(firstname,lastname,email,password,target);
             checkUpdate.Text = "Updated!";
         }
     }
