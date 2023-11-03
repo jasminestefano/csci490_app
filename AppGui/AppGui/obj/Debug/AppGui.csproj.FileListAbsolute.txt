@@ -44,3 +44,12 @@ D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.HomeMenu.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.CreateMenu.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.Booking.resources
 D:\CSCI490\AppGui\AppGui\obj\Debug\AppGui.SettingMenu.resources
+D:\CSCI490\AppGui\AppGui\bin\Debug\BouncyCastle.Cryptography.dll
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.AccessControl.dll
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.Permissions.dll
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.Principal.Windows.dll
+D:\CSCI490\AppGui\AppGui\bin\Debug\BouncyCastle.Cryptography.xml
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.AccessControl.xml
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.Permissions.xml
+D:\CSCI490\AppGui\AppGui\bin\Debug\System.Security.Principal.Windows.xml
