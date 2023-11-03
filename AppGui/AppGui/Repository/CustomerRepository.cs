@@ -104,6 +104,17 @@ namespace AppGui.Repository
             command.Parameters.AddWithValue("@trainNumber", tn);
             var results = command.ExecuteReader();
         }
+        public void updateInformation(string f, string l, string e, string p, string target)
+        {
+            var statement = "Update Passengers Set FirstName = @firstName, LastName = @lastName, Email=@email, Password = @password Where Email = @targetEmail";
+            var command = new MySqlCommand(statement, _connection);
+            command.Parameters.AddWithValue("@firstName", f);
+            command.Parameters.AddWithValue("@lastName", l);
+            command.Parameters.AddWithValue("@email", e);
+            command.Parameters.AddWithValue("@password", p);
+            command.Parameters.AddWithValue("@targetEmail", target);
+            int result = command.ExecuteNonQuery();
+        }
        
     }
 }

@@ -19,6 +19,7 @@ namespace AppGui
     {
         public static string firstName;
         public static string lastName;
+        public static string Password;
         public static int trainNumber;
         public Booking()
         {
@@ -47,6 +48,7 @@ namespace AppGui
             {
                 firstName = model.Firstname;
                 lastName = model.Lastname;
+                Password = model.password;
             }
 
             var customerRepository = new CustomerRepository();
@@ -108,6 +110,7 @@ namespace AppGui
             {
                 firstName = model.Firstname;
                 lastName = model.Lastname;
+                Password = model.password;
             }
             trainNumber = int.Parse(comboBox.Text);
             customerServices.bookTickets(firstName, lastName, trainNumber);

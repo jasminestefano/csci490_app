@@ -43,6 +43,10 @@ namespace AppGui.Services
         {
             _repo.bookTickets(f, l, tn);
         }
+        public void updateInformation(string f, string l, string e, string p, string target)
+        {
+            _repo.updateInformation(f, l, e, p, target);
+        }
 
     }
 }
