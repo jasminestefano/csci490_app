@@ -33,6 +33,16 @@ namespace AppGui.Services
         {
             _repo.registerAccount(f, l, e, p);
         }
+        public List<CustomerModel> GetCustomerInfo(string email)
+        {
+            List<CustomerModel> newList = _repo.GetCustomerInfo(email).ToList<CustomerModel>();
+            return newList;
+            
+        }
+        public void bookTickets(string f, string l, int tn)
+        {
+            _repo.bookTickets(f, l, tn);
+        }
 
     }
 }
