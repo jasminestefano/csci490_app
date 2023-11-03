@@ -3,6 +3,7 @@
     "",
     "\\AppGui",
     "\\AppGui\\AppGui",
+    "\\AppGui\\AppGui\\Models",
     "\\AppGui\\AppGui\\Repository"
   ],
   "SelectedNode": "\\AppGui\\AppGui.sln",
