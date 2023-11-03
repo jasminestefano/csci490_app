@@ -36,11 +36,11 @@
             this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.infoList = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.infoList)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -111,7 +111,7 @@
             this.infoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.infoList.Location = new System.Drawing.Point(173, 60);
             this.infoList.Name = "infoList";
-            this.infoList.Size = new System.Drawing.Size(615, 378);
+            this.infoList.Size = new System.Drawing.Size(627, 378);
             this.infoList.TabIndex = 4;
             this.infoList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.infoList_CellContentClick);
             // 
@@ -128,6 +128,15 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(167, 450);
             this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(161, 88);
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -160,15 +169,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(164, 54);
             this.panel5.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 88);
-            this.panel1.TabIndex = 0;
             // 
             // panel6
             // 
