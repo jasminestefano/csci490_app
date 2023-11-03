@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using AppGui.Models;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Security.Permissions;
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;

@@ -3,9 +3,8 @@
     "",
     "\\AppGui",
     "\\AppGui\\AppGui",
-    "\\AppGui\\AppGui\\Models",
-    "\\AppGui\\AppGui\\Repository"
+    "\\AppGui\\AppGui\\Models"
   ],
-  "SelectedNode": "\\AppGui\\AppGui\\CreateMenu.cs",
+  "SelectedNode": "\\AppGui\\AppGui\\HomeMenu.cs",
   "PreviewInSolutionExplorer": false
 }
