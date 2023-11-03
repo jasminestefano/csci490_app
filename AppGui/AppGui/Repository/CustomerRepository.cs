@@ -61,6 +61,29 @@ namespace AppGui.Repository
                 return false;
             }
         }
+        public IEnumerable<CustomerModel> GetCustomerInfo(string email) {
+            var statement = "Select * From Passengers where Email=@newEmail";
+            var command = new MySqlCommand(statement, _connection);
+            command.Parameters.AddWithValue("@newEmail", email);
+            var results = command.ExecuteReader();
+            List<CustomerModel> newList = new List<CustomerModel>();
+            while (results.Read())
+            {
+                CustomerModel newModel = new CustomerModel()
+                {
+                    passengerID = (int)results[0],
+                    Firstname = (string)results[1],
+                    Lastname = (string)results[2],
+                    Email = (string)results[3],
+                    password = (string)results[4]
+                };
+                newList.Add(newModel);
+            }
+           results.Close();
+           return newList;
+
+        }
+   
         
         public void registerAccount(string f, string l, string e, string p)
         {
@@ -72,6 +95,15 @@ namespace AppGui.Repository
             command.Parameters.AddWithValue("@newPassword", p);
             var results = command.ExecuteReader();
         }
-
+        public void bookTickets(string f, string l, int tn)
+        {
+            var statement = "INSERT INTO Booking(FirstName, LastName, TrainNumber) VALUES(@newFirst, @newLast, @trainNumber)";
+            var command = new MySqlCommand(statement, _connection);
+            command.Parameters.AddWithValue("@newFirst", f);
+            command.Parameters.AddWithValue("@newLast", l);
+            command.Parameters.AddWithValue("@trainNumber", tn);
+            var results = command.ExecuteReader();
+        }
+       
     }
 }
