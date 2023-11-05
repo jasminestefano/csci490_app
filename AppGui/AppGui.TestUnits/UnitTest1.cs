@@ -1,6 +1,9 @@
-﻿using AppGui.Repository;
+﻿using AppGui.Models;
+using AppGui.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AppGui.TestUnits
 {
@@ -38,6 +41,26 @@ namespace AppGui.TestUnits
             var repository = new CustomerRepository();
             bool results = repository.validateEmail(email);
             Assert.IsFalse(results);
+        }
+        [TestMethod]
+        public void checkListFilled_True()
+        {
+            List<CustomerModel> newList = GetCustomerInfo();
+            Assert.IsTrue(newList.Count > 0);
+        }
+        private List<CustomerModel> GetCustomerInfo()
+        {
+            return new List<CustomerModel>()
+            {
+                new CustomerModel()
+                {
+                    passengerID = 1,
+                    Firstname = "Test",
+                    Lastname = "Test",
+                    Email = "Test@gmail.com",
+                    password = "password1234"
+                }
+            };
         }
     }
 }
