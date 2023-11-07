@@ -143,45 +143,51 @@ namespace ProjFinal
         }
         public bool updateSchedule(int schID, int trID, int staID, DateTime depttime, DateTime arrtime)
         {
-            int rowsAffected = 0;
-            string query = "UPDATE TrainSchedules " +
-                "SET ScheduleID = @schID, " +
-                "TrainID = @trID, " +
-                "StationID = @staID," +
-                "ArrivalTime = @depttime, " +
-                "DepartureTime = @arrtime " +
-                "WHERE ScheduleID = @schID";
+            if (!GetTrainById(schID))
+            {
+                // Handle the case where the schedule does not exist.
+                // You might want to log this situation or throw an exception.
+                return false;
+            }
 
-            GetTrainById(schID);
-            set_Attr(trID, staID, depttime, arrtime);
+            SetAttributes(trID, staID, depttime, arrtime);
+
+            string query = @"
+            UPDATE TrainSchedules
+            SET TrainID = @trID, 
+                StationID = @staID,
+                DepartureTime = @depttime, 
+                ArrivalTime = @arrtime
+            WHERE ScheduleID = @schID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@schID", this.schedID);
-                    cmd.Parameters.AddWithValue("@trID", this.trainID);
-                    cmd.Parameters.AddWithValue("@staID", this.statID);
-                    cmd.Parameters.AddWithValue("@depttime", this.deptTime);
-                    cmd.Parameters.AddWithValue("@arrtime", this.arrTime);
+                    cmd.Parameters.AddWithValue("@schID", schID);
+                    cmd.Parameters.AddWithValue("@trID", trainID);
+                    cmd.Parameters.AddWithValue("@staID", statID);
+                    cmd.Parameters.AddWithValue("@depttime", deptTime);
+                    cmd.Parameters.AddWithValue("@arrtime", arrTime);
 
                     try
                     {
-                        rowsAffected = cmd.ExecuteNonQuery();
-
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
                     }
                     catch (MySqlException ex)
                     {
+                        // In a Windows Forms application, you might indeed show a message box.
+                        // Consider logging the exception as well.
                         MessageBox.Show("Error: " + ex.Message);
+                        return false;
                     }
-
-                    return rowsAffected > 0;
                 }
             }
         }
 
-        public void GetTrainById(int id)
+        private bool GetTrainById(int id)
         {
             string query = "SELECT * FROM TrainSchedules WHERE ScheduleID = @id";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -194,42 +200,43 @@ namespace ProjFinal
                     {
                         if (reader.Read())
                         {
-                            this.statID = reader.GetInt32("ScheduleID");
-                            this.trainID = reader.GetInt32("TrainID");
-                            this.statID = reader.GetInt32("StationID");
-                            this.deptTime = reader.GetDateTime("DepartureTime");
-                            this.arrTime = reader.GetDateTime("ArrivalTime");
+                            schedID = reader.GetInt32("ScheduleID");
+                            trainID = reader.GetInt32("TrainID");
+                            statID = reader.GetInt32("StationID");
+                            deptTime = reader.GetDateTime("DepartureTime");
+                            arrTime = reader.GetDateTime("ArrivalTime");
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
                 }
             }
         }
 
-        public void set_Attr(int trID, int staID, DateTime depttime, DateTime arrtime)
+        private void SetAttributes(int trID, int staID, DateTime depttime, DateTime arrtime)
         {
-
-            if (trID != 0 && trID != this.trainID) // Assuming dept is non-negative. Adjust condition as necessary.
+            // The assumption here is that if the passed in value is 0 or DateTime.MinValue, no change is made.
+            if (trID != 0 && trID != trainID)
             {
-                this.trainID = trID;
-                Console.WriteLine("train id diff");
+                trainID = trID;
             }
 
-            if (staID != 0 && staID != this.statID) // Assuming arr is non-negative. Adjust condition as necessary.
+            if (staID != 0 && staID != statID)
             {
-                this.statID = staID;
-                Console.WriteLine("station id diff");
+                statID = staID;
             }
 
-            if (depttime != this.deptTime && depttime != DateTime.MinValue)
+            if (depttime != DateTime.MinValue && depttime != deptTime)
             {
-                this.deptTime = depttime;
-                Console.WriteLine("time diff");
+                deptTime = depttime;
             }
 
-            if (arrtime != this.arrTime && arrtime != DateTime.MinValue)
+            if (arrtime != DateTime.MinValue && arrtime != arrTime)
             {
-                this.arrTime = arrtime;
-                Console.WriteLine("time diff");
+                arrTime = arrtime;
             }
         }
     }

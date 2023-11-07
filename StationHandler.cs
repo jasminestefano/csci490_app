@@ -128,44 +128,50 @@ namespace ProjFinal
         }
         public bool updateStation(int id, string name, string loc)
         {
-            int rowsAffected = 0;
-            string query = "UPDATE Stations " +
-                "SET StationID = @id, " +
-                "StationName = @name, " +
-                "Location = @loc" +
-                "WHERE TrainID = @trainID";
+            // First, get the current details of the station.
+            if (!GetStationById(id))
+            {
+                // Handle the case where the station does not exist.
+                return false;
+            }
 
-            GetStationById(id);
-            set_Attr(name, loc);
+            // Now set the attributes to new values if they are different.
+            SetAttributes(name, loc);
+
+            string query = @"
+        UPDATE Stations
+        SET StationName = @name, 
+            Location = @loc
+        WHERE StationID = @id";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
+                    // Use the possibly updated instance fields for the parameters.
                     cmd.Parameters.AddWithValue("@id", this.statID);
                     cmd.Parameters.AddWithValue("@name", this.stationName);
                     cmd.Parameters.AddWithValue("@loc", this.location);
 
-
                     try
                     {
-                        rowsAffected = cmd.ExecuteNonQuery();
-
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
                     }
                     catch (MySqlException ex)
                     {
                         MessageBox.Show("Error: " + ex.Message);
+                        return false;
                     }
-
-                    return rowsAffected > 0;
                 }
             }
         }
 
-        public void GetStationById(int id)
+
+        public bool GetStationById(int id)
         {
-            string query = "SELECT * FROM trains WHERE TrainId = @id";
+            string query = "SELECT * FROM Stations WHERE StationID = @id";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -179,24 +185,28 @@ namespace ProjFinal
                             this.statID = reader.GetInt32("StationID");
                             this.stationName = reader.GetString("StationName");
                             this.location = reader.GetString("Location");
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
                 }
             }
         }
 
-        public void set_Attr(string name, string loc)
+
+        public void SetAttributes(string name, string loc)
         {
             if (!string.IsNullOrEmpty(name) && !name.Equals(this.stationName, StringComparison.Ordinal))
             {
                 this.stationName = name;
-                Console.WriteLine("name diff");
             }
 
             if (!string.IsNullOrEmpty(loc) && !loc.Equals(this.location, StringComparison.Ordinal))
             {
                 this.location = loc;
-                Console.WriteLine("location diff");
             }
         }
 

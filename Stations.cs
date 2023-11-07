@@ -121,5 +121,39 @@ namespace ProjFinal
 
 
         }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            bool succ = false;
+            StationHandler trainHandler = new StationHandler();
+            succ = trainHandler.updateStation(statID, stationName, location);
+            if (succ)
+            {
+                Console.WriteLine("update success");
+                trainHandler.set_Table(dataGridView1);
+
+            }
+            else
+            {
+                Console.WriteLine("update not success");
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            bool succ = false;
+            StationHandler trainHandler = new StationHandler();
+
+            succ = trainHandler.delete_Station(statID);
+            if (succ)
+            {
+                Console.WriteLine("delete success");
+                trainHandler.set_Table(dataGridView1);
+            }
+            else
+            {
+                Console.WriteLine("delete not success");
+            }
+        }
     }
 }
